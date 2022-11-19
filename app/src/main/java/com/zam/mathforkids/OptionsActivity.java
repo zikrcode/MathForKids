@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -30,6 +31,7 @@ public class OptionsActivity extends AppCompatActivity implements View.OnTouchLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         sharedPreferences = getApplicationContext().getSharedPreferences("DIGIT_RANGE",MODE_PRIVATE);
 
