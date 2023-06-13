@@ -16,41 +16,49 @@
             android:name=".play.game_mode.time.TimeActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
             android:name=".play.game_mode.duel.DuelActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
             android:name=".play.game_mode.quiz.QuizActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
             android:name=".play.game_mode.result.ResultActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
             android:name=".play.game_mode.practice.PracticeActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
             android:name=".play.game_mode.GameModeActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
             android:name=".settings.OptionsActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
             android:name=".play.PlayMenuActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

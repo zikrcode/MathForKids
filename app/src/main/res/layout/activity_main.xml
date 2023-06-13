@@ -122,46 +122,6 @@
 
         </FrameLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/ivMore"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/b_more" />
-
-            <ImageView
-                android:id="@+id/ivShare"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/b_share" />
-
-            <ImageView
-                android:id="@+id/ivRate"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/b_rate" />
-
-            <ImageView
-                android:id="@+id/ivPrivacy"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/b_privacy" />
-
-        </LinearLayout>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
