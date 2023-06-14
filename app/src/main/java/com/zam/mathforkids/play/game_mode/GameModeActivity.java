@@ -3,7 +3,6 @@ package com.zam.mathforkids.play.game_mode;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,35 +21,35 @@ public class GameModeActivity extends AppCompatActivity implements View.OnTouchL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_game_mode);
 
         ivBackGMA = findViewById(R.id.ivBackGMA);
-        ivBackGMA.setOnTouchListener(this);
-
         ivPractice = findViewById(R.id.ivPractice);
-        ivPractice.setOnTouchListener(this);
-
         ivQuiz = findViewById(R.id.ivQuiz);
-        ivQuiz.setOnTouchListener(this);
-
         ivDuel = findViewById(R.id.ivDuel);
-        ivDuel.setOnTouchListener(this);
-
         ivTime = findViewById(R.id.ivTime);
+
+        setupViews();
+    }
+
+    private void setupViews() {
+        ivBackGMA.setOnTouchListener(this);
+        ivPractice.setOnTouchListener(this);
+        ivQuiz.setOnTouchListener(this);
+        ivDuel.setOnTouchListener(this);
         ivTime.setOnTouchListener(this);
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         ImageView imageView = (ImageView) v;
-        if(event.getAction() == MotionEvent.ACTION_DOWN){
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
             imageView.setColorFilter(getColor(R.color.transparent));
         }
-        if(event.getAction() == MotionEvent.ACTION_UP){
+        if (event.getAction() == MotionEvent.ACTION_UP) {
             imageView.clearColorFilter();
 
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.ivBackGMA:
                     finish();
                     break;
