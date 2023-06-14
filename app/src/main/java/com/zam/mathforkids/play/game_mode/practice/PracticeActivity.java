@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,35 +16,23 @@ import com.zam.mathforkids.play.game_mode.result.ResultActivity;
 
 public class PracticeActivity extends AppCompatActivity implements View.OnTouchListener{
 
-    private SharedPreferences sharedPreferences1, sharedPreferences2;
-    private int n=0, ansCorrect=0, ansWrong=0, c=0, max, min, ans;
-    private  String s, question;
-    private  Question[] practiceQuestions;
+    private SharedPreferences sharedPreferencesDigitRange, sharedPreferencesOperation;
     private ImageView ivBackPA, ivA, ivB, ivC, ivD;
     private TextView tvNumberOfQuestionPA, tvCorrectPA, tvWrongPA, tvX, tvOperationPA, tvY, tvA, tvB, tvC, tvD;
-    private String correct="", wrong="";
+    private int n = 0, ansCorrect = 0, ansWrong = 0, c = 0, max, min, ans;
+    private  String operation, question;
+    private  Question[] practiceQuestions;
+    private String correct = "", wrong = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_practice);
 
-        sharedPreferences1 = getApplicationContext().getSharedPreferences("DIGIT_RANGE",MODE_PRIVATE);
-        sharedPreferences2 = getApplicationContext().getSharedPreferences("OPERATION",MODE_PRIVATE);
-
-        min = sharedPreferences1.getInt("MIN",10);
-        max = sharedPreferences1.getInt("MAX",20);
-        s = sharedPreferences2.getString("Operation","+");
-
-        practiceQuestions = new Question[10];
-        for (int i=0; i<10; i++){
-            practiceQuestions[i] = new Question(s,max,min);
-
-        }
+        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences("DIGIT_RANGE",MODE_PRIVATE);
+        sharedPreferencesOperation = getApplicationContext().getSharedPreferences("OPERATION",MODE_PRIVATE);
 
         ivBackPA = findViewById(R.id.ivBackPA);
-        ivBackPA.setOnTouchListener(this);
 
         tvNumberOfQuestionPA = findViewById(R.id.tvNumberOfQuestionPA);
         tvCorrectPA = findViewById(R.id.tvCorrectPA);
@@ -55,25 +42,40 @@ public class PracticeActivity extends AppCompatActivity implements View.OnTouchL
         tvOperationPA = findViewById(R.id.tvOperationPA);
         tvY = findViewById(R.id.tvY);
 
-        switch (s){
-            case "+": tvOperationPA.setText("+"); break;
-            case "-": tvOperationPA.setText("-"); break;
-            case "×": tvOperationPA.setText("×"); break;
-            case "÷": tvOperationPA.setText("÷"); break;
-        }
-
         tvA = findViewById(R.id.tvA);
         tvB = findViewById(R.id.tvB);
         tvC = findViewById(R.id.tvC);
         tvD = findViewById(R.id.tvD);
 
         ivA = findViewById(R.id.ivA);
-        ivA.setOnTouchListener(this);
         ivB = findViewById(R.id.ivB);
-        ivB.setOnTouchListener(this);
         ivC = findViewById(R.id.ivC);
-        ivC.setOnTouchListener(this);
         ivD = findViewById(R.id.ivD);
+
+        setupViews();
+    }
+
+    private void setupViews() {
+        min = sharedPreferencesDigitRange.getInt("MIN",10);
+        max = sharedPreferencesDigitRange.getInt("MAX",20);
+        operation = sharedPreferencesOperation.getString("Operation","+");
+
+        practiceQuestions = new Question[10];
+        for (int i = 0; i < 10; i++) {
+            practiceQuestions[i] = new Question(operation, max, min);
+        }
+
+        switch (operation) {
+            case "+": tvOperationPA.setText("+"); break;
+            case "-": tvOperationPA.setText("-"); break;
+            case "×": tvOperationPA.setText("×"); break;
+            case "÷": tvOperationPA.setText("÷"); break;
+        }
+
+        ivBackPA.setOnTouchListener(this);
+        ivA.setOnTouchListener(this);
+        ivB.setOnTouchListener(this);
+        ivC.setOnTouchListener(this);
         ivD.setOnTouchListener(this);
 
         setUpQuestion();
@@ -85,7 +87,7 @@ public class PracticeActivity extends AppCompatActivity implements View.OnTouchL
         ivC.clearColorFilter();
         ivD.clearColorFilter();
 
-        tvNumberOfQuestionPA.setText(String.valueOf(n+1)+"/10");
+        tvNumberOfQuestionPA.setText((n+1)+"/10");
 
         tvX.setText(practiceQuestions[n].getA());
         tvY.setText(practiceQuestions[n].getB());
@@ -99,38 +101,38 @@ public class PracticeActivity extends AppCompatActivity implements View.OnTouchL
         tvC.setText(String.valueOf(random[2]));
         tvD.setText(String.valueOf(random[3]));
 
-        switch ((int) (Math.random() * 5)){
-            case 1: ans=ivA.getId(); tvA.setText(String.valueOf(c)); break;
-            case 2: ans=ivB.getId(); tvB.setText(String.valueOf(c)); break;
-            case 3: ans=ivC.getId(); tvC.setText(String.valueOf(c)); break;
-            default: ans=ivD.getId(); tvD.setText(String.valueOf(c)); break;
+        switch ((int) (Math.random() * 5)) {
+            case 1: ans = ivA.getId(); tvA.setText(String.valueOf(c)); break;
+            case 2: ans = ivB.getId(); tvB.setText(String.valueOf(c)); break;
+            case 3: ans = ivC.getId(); tvC.setText(String.valueOf(c)); break;
+            default: ans = ivD.getId(); tvD.setText(String.valueOf(c)); break;
         }
     }
 
-    private boolean nextQuestion=true;
+    private boolean nextQuestion = true;
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         ImageView imageView = (ImageView) v;
 
-        if(event.getAction() == MotionEvent.ACTION_DOWN){
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
             imageView.setColorFilter(getColor(R.color.transparent));
         }
-        if(event.getAction() == MotionEvent.ACTION_UP){
+        if (event.getAction() == MotionEvent.ACTION_UP) {
             imageView.clearColorFilter();
 
-            if (imageView.getId()==R.id.ivBackPA){
+            if (imageView.getId() == R.id.ivBackPA) {
                 finish();
             }
             else {
-                if (imageView.getId()==ans){
-                    if (nextQuestion){
-                        correct+=question+"\n";
+                if (imageView.getId() == ans) {
+                    if (nextQuestion) {
+                        correct += question + "\n";
                         ansCorrect++;
                     }
-                    nextQuestion=true;
+                    nextQuestion = true;
                     n++;
-                    if (n>9){
+                    if (n == 10) {
                         Intent intent = new Intent(PracticeActivity.this, ResultActivity.class);
                         intent.putExtra("ACTIVITY","PA");
                         intent.putExtra("CORRECT",String.valueOf(ansCorrect));
@@ -145,12 +147,12 @@ public class PracticeActivity extends AppCompatActivity implements View.OnTouchL
                     }
                 }
                 else {
-                    imageView.setColorFilter(getColor(R.color.transparent2));
-                    if (nextQuestion){
+                    imageView.setColorFilter(getColor(R.color.transparent_red));
+                    if (nextQuestion) {
                         changeAns(imageView.getId());
-                        wrong+=question+"\n";
+                        wrong += question + "\n";
                         ansWrong++;
-                        nextQuestion=false;
+                        nextQuestion = false;
                     }
                 }
                 updateScore();
@@ -160,13 +162,13 @@ public class PracticeActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     private void changeAns(int id) {
-        int x=question.indexOf('=')+1;
+        int x = question.indexOf('=') + 1;
 
-        switch (id){
-            case R.id.ivA: question=question.substring(0,x)+tvA.getText(); break;
-            case R.id.ivB: question=question.substring(0,x)+tvB.getText(); break;
-            case R.id.ivC: question=question.substring(0,x)+tvC.getText(); break;
-            case R.id.ivD: question=question.substring(0,x)+tvD.getText(); break;
+        switch (id) {
+            case R.id.ivA: question = question.substring(0, x) + tvA.getText(); break;
+            case R.id.ivB: question = question.substring(0, x) + tvB.getText(); break;
+            case R.id.ivC: question = question.substring(0, x) + tvC.getText(); break;
+            case R.id.ivD: question = question.substring(0, x) + tvD.getText(); break;
         }
     }
 

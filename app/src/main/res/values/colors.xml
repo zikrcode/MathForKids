@@ -13,7 +13,7 @@
     <color name="primaryColorDark4">#698bc9</color>
 
     <color name="transparent">#66ffffff</color>
-    <color name="transparent2">#59ff0000</color>
+    <color name="transparent_red">#59ff0000</color>
     <color name="white">#fafafa</color>
     <color name="black">#191919</color>
     <color name="red">#ba181b</color>
