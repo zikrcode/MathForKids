@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,24 +20,24 @@ public class PlayMenuActivity extends AppCompatActivity implements View.OnTouchL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_play_menu);
 
-        sharedPreferences = getApplicationContext().getSharedPreferences("OPERATION",MODE_PRIVATE);
+        sharedPreferences = getApplicationContext().getSharedPreferences("OPERATION", MODE_PRIVATE);
 
-        ivBackPMA=findViewById(R.id.ivBackPMA);
-        ivBackPMA.setOnTouchListener(this);
-
+        ivBackPMA = findViewById(R.id.ivBackPMA);
         ivAddition = findViewById(R.id.ivAddition);
-        ivAddition.setOnTouchListener(this);
-
         ivSubtraction = findViewById(R.id.ivSubtraction);
-        ivSubtraction.setOnTouchListener(this);
-
         ivMultiplication = findViewById(R.id.ivMultiplication);
-        ivMultiplication.setOnTouchListener(this);
+        ivDivision = findViewById(R.id.ivDivision);
 
-        ivDivision =findViewById(R.id.ivDivision);
+        setupViews();
+    }
+
+    private void setupViews() {
+        ivBackPMA.setOnTouchListener(this);
+        ivAddition.setOnTouchListener(this);
+        ivSubtraction.setOnTouchListener(this);
+        ivMultiplication.setOnTouchListener(this);
         ivDivision.setOnTouchListener(this);
     }
 
@@ -46,16 +45,18 @@ public class PlayMenuActivity extends AppCompatActivity implements View.OnTouchL
     public boolean onTouch(View v, MotionEvent event) {
         ImageView imageView = (ImageView) v;
 
-        if(event.getAction() == MotionEvent.ACTION_DOWN){
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
             imageView.setColorFilter(getColor(R.color.transparent));
         }
-        if(event.getAction() == MotionEvent.ACTION_UP){
+        if (event.getAction() == MotionEvent.ACTION_UP) {
             imageView.clearColorFilter();
 
             SharedPreferences.Editor editor = sharedPreferences.edit();
 
-            switch (v.getId()){
-                case R.id.ivBackPMA: finish(); break;
+            switch (v.getId()) {
+                case R.id.ivBackPMA:
+                    finish();
+                    break;
                 case R.id.ivAddition:
                     Intent intentAddition = new Intent(PlayMenuActivity.this, GameModeActivity.class);
                     editor.putString("Operation", "+");
