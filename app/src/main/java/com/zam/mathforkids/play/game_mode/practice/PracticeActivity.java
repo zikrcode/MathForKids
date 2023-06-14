@@ -29,8 +29,8 @@ public class PracticeActivity extends AppCompatActivity implements View.OnTouchL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice);
 
-        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences("DIGIT_RANGE",MODE_PRIVATE);
-        sharedPreferencesOperation = getApplicationContext().getSharedPreferences("OPERATION",MODE_PRIVATE);
+        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences("DIGIT_RANGE", MODE_PRIVATE);
+        sharedPreferencesOperation = getApplicationContext().getSharedPreferences("OPERATION", MODE_PRIVATE);
 
         ivBackPA = findViewById(R.id.ivBackPA);
 
@@ -87,7 +87,7 @@ public class PracticeActivity extends AppCompatActivity implements View.OnTouchL
         ivC.clearColorFilter();
         ivD.clearColorFilter();
 
-        tvNumberOfQuestionPA.setText((n+1)+"/10");
+        tvNumberOfQuestionPA.setText((n + 1) + "/10");
 
         tvX.setText(practiceQuestions[n].getA());
         tvY.setText(practiceQuestions[n].getB());

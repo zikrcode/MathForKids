@@ -29,8 +29,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnTouchListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences("DIGIT_RANGE",MODE_PRIVATE);
-        sharedPreferencesOperation = getApplicationContext().getSharedPreferences("OPERATION",MODE_PRIVATE);
+        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences("DIGIT_RANGE", MODE_PRIVATE);
+        sharedPreferencesOperation = getApplicationContext().getSharedPreferences("OPERATION", MODE_PRIVATE);
 
         ivBackQA = findViewById(R.id.ivBackQA);
 
@@ -80,7 +80,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     private void setUpQuestion() {
-        tvNumberOfQuestionQA.setText((n+1)+"/10");
+        tvNumberOfQuestionQA.setText((n + 1) + "/10");
 
         tvXQA.setText(quizQuestions[n].getA());
         tvYQA.setText(quizQuestions[n].getB());
