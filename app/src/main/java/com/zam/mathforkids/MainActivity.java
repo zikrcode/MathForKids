@@ -23,12 +23,15 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         setContentView(R.layout.activity_main);
 
         ivPlay = findViewById(R.id.ivPlay);
-        ivPlay.setOnTouchListener(this);
-
         ivOptions = findViewById(R.id.ivOptions);
-        ivOptions.setOnTouchListener(this);
-
         ivExit = findViewById(R.id.ivExitMA);
+
+        setupViews();
+    }
+
+    private void setupViews() {
+        ivPlay.setOnTouchListener(this);
+        ivOptions.setOnTouchListener(this);
         ivExit.setOnTouchListener(this);
     }
 
