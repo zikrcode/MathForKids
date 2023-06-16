@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -64,9 +65,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/carter_one_regular"
-                        android:text="A"
                         android:textColor="@color/red"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        tools:text="A" />
 
                 </FrameLayout>
 
@@ -87,9 +88,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/carter_one_regular"
-                        android:text="B"
                         android:textColor="@color/red"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        tools:text="B" />
 
                 </FrameLayout>
 
@@ -120,9 +121,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/carter_one_regular"
-                        android:text="C"
                         android:textColor="@color/red"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        tools:text="C" />
 
                 </FrameLayout>
 
@@ -143,9 +144,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/carter_one_regular"
-                        android:text="D"
                         android:textColor="@color/red"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        tools:text="D" />
 
                 </FrameLayout>
 
@@ -169,7 +170,7 @@
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
                 android:rotation="180"
-                android:text="\?"
+                android:text="@string/question_mark"
                 android:textColor="@color/black"
                 android:textSize="34sp" />
 
@@ -181,7 +182,7 @@
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
                 android:rotation="180"
-                android:text="="
+                android:text="@string/equal_sign"
                 android:textColor="@color/black"
                 android:textSize="34sp" />
 
@@ -194,9 +195,9 @@
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
                 android:rotation="180"
-                android:text="b"
                 android:textColor="@color/black"
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                tools:text="b" />
 
             <TextView
                 android:id="@+id/tvOperation1"
@@ -207,9 +208,9 @@
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
                 android:rotation="180"
-                android:text="+"
                 android:textColor="@color/black"
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                tools:text="+" />
 
             <TextView
                 android:id="@+id/tvX1"
@@ -220,9 +221,9 @@
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
                 android:rotation="180"
-                android:text="a"
                 android:textColor="@color/black"
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                tools:text="a" />
 
         </LinearLayout>
 
@@ -234,9 +235,9 @@
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
             android:rotation="180"
-            android:text="0"
             android:textColor="@color/green"
-            android:textSize="34sp" />
+            android:textSize="34sp"
+            tools:text="0" />
 
     </LinearLayout>
 
@@ -259,6 +260,7 @@
             android:layout_marginEnd="20dp"
             android:progress="10"
             android:progressDrawable="@drawable/my_progressbar" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -279,9 +281,9 @@
             android:layout_gravity="center"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
-            android:text="0"
             android:textColor="@color/green"
-            android:textSize="34sp" />
+            android:textSize="34sp"
+            tools:text="0" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -299,9 +301,9 @@
                 android:background="@color/primaryColor1"
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
-                android:text="a"
                 android:textColor="@color/black"
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                tools:text="a" />
 
             <TextView
                 android:id="@+id/tvOperation2"
@@ -311,9 +313,9 @@
                 android:background="@color/primaryColor1"
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
-                android:text="+"
                 android:textColor="@color/black"
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                tools:text="+" />
 
             <TextView
                 android:id="@+id/tvY2"
@@ -323,7 +325,18 @@
                 android:background="@color/primaryColor1"
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
-                android:text="b"
+                android:textColor="@color/black"
+                android:textSize="34sp"
+                tools:text="b" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/primaryColor1"
+                android:fontFamily="@font/carter_one_regular"
+                android:gravity="center"
+                android:text="@string/equal_sign"
                 android:textColor="@color/black"
                 android:textSize="34sp" />
 
@@ -334,20 +347,9 @@
                 android:background="@color/primaryColor1"
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
-                android:text="="
                 android:textColor="@color/black"
-                android:textSize="34sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/primaryColor1"
-                android:fontFamily="@font/carter_one_regular"
-                android:gravity="center"
-                android:text="\?"
-                android:textColor="@color/black"
-                android:textSize="34sp" />
+                android:textSize="34sp"
+                tools:text="@string/question_mark" />
 
         </LinearLayout>
 
@@ -384,9 +386,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/carter_one_regular"
-                        android:text="A"
                         android:textColor="@color/red"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        tools:text="A" />
 
                 </FrameLayout>
 
@@ -407,9 +409,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/carter_one_regular"
-                        android:text="B"
                         android:textColor="@color/red"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        tools:text="B" />
 
                 </FrameLayout>
 
@@ -440,9 +442,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/carter_one_regular"
-                        android:text="C"
                         android:textColor="@color/red"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        tools:text="C" />
 
                 </FrameLayout>
 
@@ -463,9 +465,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/carter_one_regular"
-                        android:text="D"
                         android:textColor="@color/red"
-                        android:textSize="23sp" />
+                        android:textSize="23sp"
+                        tools:text="D" />
 
                 </FrameLayout>
 

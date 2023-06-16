@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.zam.mathforkids.play.game_mode.GameModeActivity;
 import com.zam.mathforkids.R;
+import com.zam.mathforkids.utils.AppConstants;
 
 public class PlayMenuActivity extends AppCompatActivity implements View.OnTouchListener{
 
@@ -22,7 +23,7 @@ public class PlayMenuActivity extends AppCompatActivity implements View.OnTouchL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_menu);
 
-        sharedPreferences = getApplicationContext().getSharedPreferences("OPERATION", MODE_PRIVATE);
+        sharedPreferences = getApplicationContext().getSharedPreferences(AppConstants.OPERATION, MODE_PRIVATE);
 
         ivBackPMA = findViewById(R.id.ivBackPMA);
         ivAddition = findViewById(R.id.ivAddition);
@@ -59,22 +60,22 @@ public class PlayMenuActivity extends AppCompatActivity implements View.OnTouchL
                     break;
                 case R.id.ivAddition:
                     Intent intentAddition = new Intent(PlayMenuActivity.this, GameModeActivity.class);
-                    editor.putString("Operation", "+");
+                    editor.putString(AppConstants.KEY_OPERATION, AppConstants.ADDITION);
                     startActivity(intentAddition);
                     break;
                 case R.id.ivSubtraction:
                     Intent intentSubtraction = new Intent(PlayMenuActivity.this, GameModeActivity.class);
-                    editor.putString("Operation", "-");
+                    editor.putString(AppConstants.KEY_OPERATION, AppConstants.SUBTRACTION);
                     startActivity(intentSubtraction);
                     break;
                 case R.id.ivMultiplication:
                     Intent intentMultiplication = new Intent(PlayMenuActivity.this, GameModeActivity.class);
-                    editor.putString("Operation", "×");
+                    editor.putString(AppConstants.KEY_OPERATION, AppConstants.MULTIPLICATION);
                     startActivity(intentMultiplication);
                     break;
                 case R.id.ivDivision:
                     Intent intentDivision = new Intent(PlayMenuActivity.this, GameModeActivity.class);
-                    editor.putString("Operation", "÷");
+                    editor.putString(AppConstants.KEY_OPERATION, AppConstants.DIVISION);
                     startActivity(intentDivision);
                     break;
             }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.zam.mathforkids.model.Question;
 import com.zam.mathforkids.R;
 import com.zam.mathforkids.play.game_mode.result.ResultActivity;
+import com.zam.mathforkids.utils.AppConstants;
 
 public class QuizActivity extends AppCompatActivity implements View.OnTouchListener{
 
@@ -29,8 +30,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnTouchListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences("DIGIT_RANGE", MODE_PRIVATE);
-        sharedPreferencesOperation = getApplicationContext().getSharedPreferences("OPERATION", MODE_PRIVATE);
+        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences(AppConstants.DIGIT_RANGE, MODE_PRIVATE);
+        sharedPreferencesOperation = getApplicationContext().getSharedPreferences(AppConstants.OPERATION, MODE_PRIVATE);
 
         ivBackQA = findViewById(R.id.ivBackQA);
 
@@ -54,9 +55,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     private void setupViews() {
-        min = sharedPreferencesDigitRange.getInt("MIN",10);
-        max = sharedPreferencesDigitRange.getInt("MAX",20);
-        operation = sharedPreferencesOperation.getString("Operation","+");
+        min = sharedPreferencesDigitRange.getInt(AppConstants.KEY_MIN, AppConstants.KEY_MIN_DEF);
+        max = sharedPreferencesDigitRange.getInt(AppConstants.KEY_MAX, AppConstants.KEY_MAX_DEF);
+        operation = sharedPreferencesOperation.getString(AppConstants.KEY_OPERATION, AppConstants.ADDITION);
 
         quizQuestions = new Question[10];
         for (int i = 0; i < 10; i++) {
@@ -64,10 +65,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnTouchListe
         }
 
         switch (operation) {
-            case "+": tvOperationQA.setText("+"); break;
-            case "-": tvOperationQA.setText("-"); break;
-            case "×": tvOperationQA.setText("×"); break;
-            case "÷": tvOperationQA.setText("÷"); break;
+            case AppConstants.ADDITION: tvOperationQA.setText(AppConstants.ADDITION); break;
+            case AppConstants.SUBTRACTION: tvOperationQA.setText(AppConstants.SUBTRACTION); break;
+            case AppConstants.MULTIPLICATION: tvOperationQA.setText(AppConstants.MULTIPLICATION); break;
+            case AppConstants.DIVISION: tvOperationQA.setText(AppConstants.DIVISION); break;
         }
 
         ivBackQA.setOnTouchListener(this);
@@ -127,11 +128,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnTouchListe
                 }
                 if (n == 10) {
                     Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-                    intent.putExtra("ACTIVITY","QA");
-                    intent.putExtra("CORRECT",String.valueOf(ansCorrect));
-                    intent.putExtra("WRONG",String.valueOf(10 - ansCorrect));
-                    intent.putExtra("C_QUESTIONS",correct);
-                    intent.putExtra("W_QUESTIONS",wrong);
+                    intent.putExtra(AppConstants.ACTIVITY, AppConstants.QUIZ_ACTIVITY);
+                    intent.putExtra(AppConstants.CORRECT, String.valueOf(ansCorrect));
+                    intent.putExtra(AppConstants.WRONG, String.valueOf(10 - ansCorrect));
+                    intent.putExtra(AppConstants.C_QUESTIONS, correct);
+                    intent.putExtra(AppConstants.W_QUESTIONS, wrong);
                     startActivity(intent);
                     finish();
                 }
@@ -144,7 +145,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     private void changeAns(int id) {
-        int x = question.indexOf('=') + 1;
+        int x = question.indexOf(AppConstants.EQUAL) + 1;
 
         switch (id) {
             case R.id.ivAQA: question = question.substring(0, x) + tvAQA.getText(); break;

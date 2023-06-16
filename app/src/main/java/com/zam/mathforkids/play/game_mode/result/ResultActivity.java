@@ -14,6 +14,7 @@ import com.zam.mathforkids.play.game_mode.duel.DuelActivity;
 import com.zam.mathforkids.play.game_mode.practice.PracticeActivity;
 import com.zam.mathforkids.play.game_mode.quiz.QuizActivity;
 import com.zam.mathforkids.play.game_mode.time.TimeActivity;
+import com.zam.mathforkids.utils.AppConstants;
 
 public class ResultActivity extends AppCompatActivity implements View.OnTouchListener {
 
@@ -42,9 +43,9 @@ public class ResultActivity extends AppCompatActivity implements View.OnTouchLis
     }
 
     private void setupViews() {
-        activity = getIntent().getStringExtra("ACTIVITY");
+        activity = getIntent().getStringExtra(AppConstants.ACTIVITY);
 
-        if (activity.equals("DA")) {
+        if (activity.equals(AppConstants.DUEL_ACTIVITY)) {
             setupDuelResult();
         }
         else {
@@ -56,31 +57,39 @@ public class ResultActivity extends AppCompatActivity implements View.OnTouchLis
     }
 
     private void setupDuelResult() {
-        tv1RA.setText("Player 1");
+        tv1RA.setText(getText(R.string.player_1));
 
-        tv2RA.setText("Player 2");
+        tv2RA.setText(getText(R.string.player_2));
         tv2RA.setTextColor(getColor(R.color.green));
 
-        tvAns1RA.setText("=" + getIntent().getStringExtra("PLAYER 1"));
+        tvAns1RA.setText(
+                getText(R.string.equal_sign) + getIntent().getStringExtra(AppConstants.PLAYER_1)
+        );
 
-        tvAns2RA.setText("=" + getIntent().getStringExtra("PLAYER 2"));
+        tvAns2RA.setText(
+                getText(R.string.equal_sign) + getIntent().getStringExtra(AppConstants.PLAYER_2)
+        );
         tvAns2RA.setTextColor(getColor(R.color.green));
 
-        tvCorrectRA.setText(getIntent().getStringExtra("C1_QUESTIONS"));
+        tvCorrectRA.setText(getIntent().getStringExtra(AppConstants.C1_QUESTIONS));
 
-        tvWrongRA.setText(getIntent().getStringExtra("C2_QUESTIONS"));
+        tvWrongRA.setText(getIntent().getStringExtra(AppConstants.C2_QUESTIONS));
         tvWrongRA.setTextColor(getColor(R.color.green));
     }
 
     private void setupResult() {
-        tv1RA.setText("Correct");
-        tv2RA.setText("Wrong");
+        tv1RA.setText(getText(R.string.correct));
+        tv2RA.setText(getText(R.string.wrong));
 
-        tvAns1RA.setText("=" + getIntent().getStringExtra("CORRECT"));
-        tvAns2RA.setText("=" + getIntent().getStringExtra("WRONG"));
+        tvAns1RA.setText(
+                getText(R.string.equal_sign) + getIntent().getStringExtra(AppConstants.CORRECT)
+        );
+        tvAns2RA.setText(
+                getText(R.string.equal_sign) + getIntent().getStringExtra(AppConstants.WRONG)
+        );
 
-        tvCorrectRA.setText(getIntent().getStringExtra("C_QUESTIONS"));
-        tvWrongRA.setText(getIntent().getStringExtra("W_QUESTIONS"));
+        tvCorrectRA.setText(getIntent().getStringExtra(AppConstants.C_QUESTIONS));
+        tvWrongRA.setText(getIntent().getStringExtra(AppConstants.W_QUESTIONS));
     }
 
     @Override
@@ -98,13 +107,13 @@ public class ResultActivity extends AppCompatActivity implements View.OnTouchLis
                 Intent intentRestart;
 
                 switch (activity) {
-                    case "PA":
+                    case AppConstants.PRACTICE_ACTIVITY:
                         intentRestart = new Intent(ResultActivity.this, PracticeActivity.class);
                         break;
-                    case "QA":
+                    case AppConstants.QUIZ_ACTIVITY:
                         intentRestart = new Intent(ResultActivity.this, QuizActivity.class);
                         break;
-                    case "DA":
+                    case AppConstants.DUEL_ACTIVITY:
                         intentRestart = new Intent(ResultActivity.this, DuelActivity.class);
                         break;
                     default:

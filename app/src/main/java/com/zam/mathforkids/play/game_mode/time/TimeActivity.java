@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.zam.mathforkids.model.Question;
 import com.zam.mathforkids.R;
 import com.zam.mathforkids.play.game_mode.result.ResultActivity;
+import com.zam.mathforkids.utils.AppConstants;
 
 public class TimeActivity extends AppCompatActivity implements View.OnTouchListener{
 
@@ -31,8 +32,8 @@ public class TimeActivity extends AppCompatActivity implements View.OnTouchListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
 
-        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences("DIGIT_RANGE" ,MODE_PRIVATE);
-        sharedPreferencesOperation = getApplicationContext().getSharedPreferences("OPERATION", MODE_PRIVATE);
+        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences(AppConstants.DIGIT_RANGE, MODE_PRIVATE);
+        sharedPreferencesOperation = getApplicationContext().getSharedPreferences(AppConstants.OPERATION, MODE_PRIVATE);
 
         ivBackTA = findViewById(R.id.ivBackTA);
         tvTimerTA = findViewById(R.id.tvTimerTA);
@@ -57,10 +58,10 @@ public class TimeActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     private void setupViews() {
-        myTimer =  new MyTimer(sharedPreferencesDigitRange.getInt("SECONDS",10000),1000);
-        min = sharedPreferencesDigitRange.getInt("MIN",10);
-        max = sharedPreferencesDigitRange.getInt("MAX",20);
-        operation = sharedPreferencesOperation.getString("Operation","+");
+        myTimer =  new MyTimer(sharedPreferencesDigitRange.getInt(AppConstants.KEY_SECONDS, AppConstants.KEY_SECONDS_DEF),1000);
+        min = sharedPreferencesDigitRange.getInt(AppConstants.KEY_MIN, AppConstants.KEY_MIN_DEF);
+        max = sharedPreferencesDigitRange.getInt(AppConstants.KEY_MAX, AppConstants.KEY_MAX_DEF);
+        operation = sharedPreferencesOperation.getString(AppConstants.KEY_OPERATION, AppConstants.ADDITION);
 
         timeQuestions = new Question[10];
         for (int i = 0; i < 10; i++) {
@@ -68,10 +69,10 @@ public class TimeActivity extends AppCompatActivity implements View.OnTouchListe
         }
 
         switch (operation) {
-            case "+": tvOperationTA.setText("+"); break;
-            case "-": tvOperationTA.setText("-"); break;
-            case "×": tvOperationTA.setText("×"); break;
-            case "÷": tvOperationTA.setText("÷"); break;
+            case AppConstants.ADDITION: tvOperationTA.setText(AppConstants.ADDITION); break;
+            case AppConstants.SUBTRACTION: tvOperationTA.setText(AppConstants.SUBTRACTION); break;
+            case AppConstants.MULTIPLICATION: tvOperationTA.setText(AppConstants.MULTIPLICATION); break;
+            case AppConstants.DIVISION: tvOperationTA.setText(AppConstants.DIVISION); break;
         }
 
         ivBackTA.setOnTouchListener(this);
@@ -145,7 +146,7 @@ public class TimeActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     private void changeAns(int id) {
-        int x = question.indexOf('=') + 1;
+        int x = question.indexOf(AppConstants.EQUAL) + 1;
 
         switch (id){
             case R.id.ivATA: question = question.substring(0, x) + tvATA.getText(); break;
@@ -157,11 +158,11 @@ public class TimeActivity extends AppCompatActivity implements View.OnTouchListe
 
     private void finishResult() {
         Intent intent = new Intent(TimeActivity.this, ResultActivity.class);
-        intent.putExtra("ACTIVITY","TA");
-        intent.putExtra("CORRECT",String.valueOf(ansCorrect));
-        intent.putExtra("WRONG",String.valueOf(10 - ansCorrect));
-        intent.putExtra("C_QUESTIONS",correct);
-        intent.putExtra("W_QUESTIONS",wrong);
+        intent.putExtra(AppConstants.ACTIVITY, AppConstants.TIME_ACTIVITY);
+        intent.putExtra(AppConstants.CORRECT, String.valueOf(ansCorrect));
+        intent.putExtra(AppConstants.WRONG, String.valueOf(10 - ansCorrect));
+        intent.putExtra(AppConstants.C_QUESTIONS, correct);
+        intent.putExtra(AppConstants.W_QUESTIONS, wrong);
         startActivity(intent);
         finish();
     }

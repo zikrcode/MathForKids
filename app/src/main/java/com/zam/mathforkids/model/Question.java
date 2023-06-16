@@ -1,5 +1,7 @@
 package com.zam.mathforkids.model;
 
+import com.zam.mathforkids.utils.AppConstants;
+
 public class Question {
 
     private String operation;
@@ -42,19 +44,19 @@ public class Question {
 
     private void setupSwitch() {
         switch (operation) {
-            case "+":
+            case AppConstants.ADDITION:
                 b = getRandomNumber(false);
                 c = a + b;
                 break;
-            case "-":
+            case AppConstants.SUBTRACTION:
                 b = getRandomNumber(a - 1);
                 c = a - b;
                 break;
-            case "×":
+            case AppConstants.MULTIPLICATION:
                 b = getRandomNumber(min / 5);
                 c = a * b;
                 break;
-            case "÷":
+            case AppConstants.DIVISION:
                 b = getRandomNumber(a);
                 while (a % b != 0) {
                     b = getRandomNumber(a);
@@ -69,7 +71,7 @@ public class Question {
     }
 
     public String getQuestion() {
-        return a + operation + b + "=" + c;
+        return a + operation + b + AppConstants.EQUAL + c;
     }
 
     public String getA() {

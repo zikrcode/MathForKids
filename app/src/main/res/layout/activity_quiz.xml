@@ -47,15 +47,14 @@
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
-            android:text="1/10"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1/10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <LinearLayout
         android:id="@+id/ll1QA"
@@ -78,9 +77,9 @@
             android:background="@color/orange"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
-            android:text="a"
             android:textColor="@color/black"
-            android:textSize="34sp" />
+            android:textSize="34sp"
+            tools:text="a" />
 
         <TextView
             android:id="@+id/tvOperationQA"
@@ -90,9 +89,9 @@
             android:background="@color/orange"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
-            android:text="+"
             android:textColor="@color/black"
-            android:textSize="34sp" />
+            android:textSize="34sp"
+            tools:text="+" />
 
         <TextView
             android:id="@+id/tvYQA"
@@ -102,7 +101,18 @@
             android:background="@color/orange"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
-            android:text="b"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            tools:text="b" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/orange"
+            android:fontFamily="@font/carter_one_regular"
+            android:gravity="center"
+            android:text="@string/equal_sign"
             android:textColor="@color/black"
             android:textSize="34sp" />
 
@@ -113,18 +123,7 @@
             android:background="@color/orange"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
-            android:text="="
-            android:textColor="@color/black"
-            android:textSize="34sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@color/orange"
-            android:fontFamily="@font/carter_one_regular"
-            android:gravity="center"
-            android:text="\?"
+            android:text="@string/question_mark"
             android:textColor="@color/black"
             android:textSize="34sp" />
 
@@ -167,9 +166,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/carter_one_regular"
-                    android:text="A"
                     android:textColor="@color/black"
-                    android:textSize="23sp" />
+                    android:textSize="23sp"
+                    tools:text="A" />
 
             </FrameLayout>
 
@@ -190,9 +189,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/carter_one_regular"
-                    android:text="B"
                     android:textColor="@color/black"
-                    android:textSize="23sp" />
+                    android:textSize="23sp"
+                    tools:text="B" />
 
             </FrameLayout>
 
@@ -223,9 +222,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/carter_one_regular"
-                    android:text="C"
                     android:textColor="@color/black"
-                    android:textSize="23sp" />
+                    android:textSize="23sp"
+                    tools:text="C" />
 
             </FrameLayout>
 
@@ -246,9 +245,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/carter_one_regular"
-                    android:text="D"
                     android:textColor="@color/black"
-                    android:textSize="23sp" />
+                    android:textSize="23sp"
+                    tools:text="D" />
 
             </FrameLayout>
 

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.zam.mathforkids.model.Question;
 import com.zam.mathforkids.R;
 import com.zam.mathforkids.play.game_mode.result.ResultActivity;
+import com.zam.mathforkids.utils.AppConstants;
 
 public class DuelActivity extends AppCompatActivity implements View.OnTouchListener{
 
@@ -31,8 +32,8 @@ public class DuelActivity extends AppCompatActivity implements View.OnTouchListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_duel);
 
-        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences("DIGIT_RANGE", MODE_PRIVATE);
-        sharedPreferencesOperation = getApplicationContext().getSharedPreferences("OPERATION", MODE_PRIVATE);
+        sharedPreferencesDigitRange = getApplicationContext().getSharedPreferences(AppConstants.DIGIT_RANGE, MODE_PRIVATE);
+        sharedPreferencesOperation = getApplicationContext().getSharedPreferences(AppConstants.OPERATION, MODE_PRIVATE);
 
         ivA1 = findViewById(R.id.ivA1);
         ivB1 = findViewById(R.id.ivB1);
@@ -70,9 +71,9 @@ public class DuelActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     private void setupViews() {
-        min = sharedPreferencesDigitRange.getInt("MIN",10);
-        max = sharedPreferencesDigitRange.getInt("MAX",20);
-        operation = sharedPreferencesOperation.getString("Operation","+");
+        min = sharedPreferencesDigitRange.getInt(AppConstants.KEY_MIN, AppConstants.KEY_MIN_DEF);
+        max = sharedPreferencesDigitRange.getInt(AppConstants.KEY_MAX, AppConstants.KEY_MAX_DEF);
+        operation = sharedPreferencesOperation.getString(AppConstants.KEY_OPERATION, AppConstants.ADDITION);
 
         duelQuestions = new Question[10];
         for (int i = 0; i < 10; i++) {
@@ -80,10 +81,22 @@ public class DuelActivity extends AppCompatActivity implements View.OnTouchListe
         }
 
         switch (operation) {
-            case "+": tvOperation1.setText("+"); tvOperation2.setText("+"); break;
-            case "-": tvOperation1.setText("-"); tvOperation2.setText("-"); break;
-            case "×": tvOperation1.setText("×"); tvOperation2.setText("×"); break;
-            case "÷": tvOperation1.setText("÷"); tvOperation2.setText("÷"); break;
+            case AppConstants.ADDITION:
+                tvOperation1.setText(AppConstants.ADDITION);
+                tvOperation2.setText(AppConstants.ADDITION);
+                break;
+            case AppConstants.SUBTRACTION:
+                tvOperation1.setText(AppConstants.SUBTRACTION);
+                tvOperation2.setText(AppConstants.SUBTRACTION);
+                break;
+            case AppConstants.MULTIPLICATION:
+                tvOperation1.setText(AppConstants.MULTIPLICATION);
+                tvOperation2.setText(AppConstants.MULTIPLICATION);
+                break;
+            case AppConstants.DIVISION:
+                tvOperation1.setText(AppConstants.DIVISION);
+                tvOperation2.setText(AppConstants.DIVISION);
+                break;
         }
 
         ivA1.setOnTouchListener(this);
@@ -184,11 +197,11 @@ public class DuelActivity extends AppCompatActivity implements View.OnTouchListe
             }
             if (n == 10) {
                 Intent intent = new Intent(DuelActivity.this, ResultActivity.class);
-                intent.putExtra("ACTIVITY","DA");
-                intent.putExtra("PLAYER 1",String.valueOf(ansCorrect1));
-                intent.putExtra("PLAYER 2",String.valueOf(ansCorrect2));
-                intent.putExtra("C1_QUESTIONS",correct1);
-                intent.putExtra("C2_QUESTIONS",correct2);
+                intent.putExtra(AppConstants.ACTIVITY, AppConstants.DUEL_ACTIVITY);
+                intent.putExtra(AppConstants.PLAYER_1, String.valueOf(ansCorrect1));
+                intent.putExtra(AppConstants.PLAYER_2, String.valueOf(ansCorrect2));
+                intent.putExtra(AppConstants.C1_QUESTIONS, correct1);
+                intent.putExtra(AppConstants.C2_QUESTIONS, correct2);
                 startActivity(intent);
                 finish();
             }

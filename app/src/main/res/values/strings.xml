@@ -1,33 +1,36 @@
 <resources>
     <string name="app_name">Math For Kids</string>
 
-    //SplashScreen
-    <string name="zam">zikr.and.mehr</string>
-
-    //MainActivity
+    <!-- MainActivity -->
     <string name="play">Play</string>
     <string name="options">Settings</string>
     <string name="exit">Exit</string>
-    <string name="share_message">Try this awesome Math For Kids: https://play.google.com/store/apps/details?id=com.zam.mathforkids</string>
 
-    //SettingsActivity
+    <!-- OptionsActivity -->
     <string name="time_interval">Time limit per Question</string>
     <string name="seconds">Seconds :</string>
     <string name="digit_range">Digit Range</string>
     <string name="min">Minimum :</string>
     <string name="max">Maximum :</string>
 
-    //GameModeActivity
+    <!-- GameModeActivity -->
     <string name="practice">Practice</string>
     <string name="quiz">Quiz</string>
     <string name="duel">Duel</string>
     <string name="time">Time</string>
 
-    /TimeActivity
+    <!-- PracticeActivity -->
+    <string name="zero">0</string>
+    <string name="equal_sign">=</string>
+    <string name="question_mark">\?</string>
+
+    <!-- TimeActivity -->
     <string name="seconds_remaining">Seconds remaining :</string>
     <string name="not_solved">Not solved!</string>
 
-    //ResultActivity
+    <!-- ResultActivity -->
+    <string name="player_1">Player 1</string>
+    <string name="player_2">Player 2</string>
     <string name="score">Score</string>
     <string name="correct">Correct</string>
     <string name="wrong">Wrong</string>

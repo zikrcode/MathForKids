@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.material.slider.Slider;
 import com.zam.mathforkids.R;
+import com.zam.mathforkids.utils.AppConstants;
 
 public class OptionsActivity extends AppCompatActivity implements View.OnTouchListener, Slider.OnChangeListener{
 
@@ -25,7 +26,7 @@ public class OptionsActivity extends AppCompatActivity implements View.OnTouchLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        sharedPreferences = getApplicationContext().getSharedPreferences("DIGIT_RANGE",MODE_PRIVATE);
+        sharedPreferences = getApplicationContext().getSharedPreferences(AppConstants.DIGIT_RANGE, MODE_PRIVATE);
         setContentView(R.layout.activity_options);
 
         tvSecondsOA = findViewById(R.id.tvSecondsOA);
@@ -50,15 +51,15 @@ public class OptionsActivity extends AppCompatActivity implements View.OnTouchLi
     }
 
     private void setupTimeLimit() {
-        seconds = sharedPreferences.getInt("SECONDS",10000);
+        seconds = sharedPreferences.getInt(AppConstants.KEY_SECONDS, AppConstants.KEY_SECONDS_DEF);
 
-        tvSecondsOA.setText(String.valueOf(seconds/1000));
-        sSecondsOA.setValue(seconds/1000f);
+        tvSecondsOA.setText(String.valueOf(seconds / 1000));
+        sSecondsOA.setValue(seconds / 1000f);
         sSecondsOA.addOnChangeListener(this);
     }
 
     private void setupMinNumber() {
-        min = sharedPreferences.getInt("MIN",10);
+        min = sharedPreferences.getInt(AppConstants.KEY_MIN, AppConstants.KEY_MIN_DEF);
 
         tvMinOA.setText(String.valueOf(min));
         sMinOA.setValue(min);
@@ -66,7 +67,7 @@ public class OptionsActivity extends AppCompatActivity implements View.OnTouchLi
     }
 
     private void setupMaxNumber() {
-        max = sharedPreferences.getInt("MAX",20);
+        max = sharedPreferences.getInt(AppConstants.KEY_MAX, AppConstants.KEY_MAX_DEF);
 
         tvMaxOA.setText(String.valueOf(max));
         sMaxOA.setValue(max);
@@ -84,6 +85,7 @@ public class OptionsActivity extends AppCompatActivity implements View.OnTouchLi
             imageView.clearColorFilter();
             finish();
         }
+
         return true;
     }
 
@@ -115,9 +117,9 @@ public class OptionsActivity extends AppCompatActivity implements View.OnTouchLi
         }
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("SECONDS", seconds);
-        editor.putInt("MIN", min);
-        editor.putInt("MAX", max);
+        editor.putInt(AppConstants.KEY_SECONDS, seconds);
+        editor.putInt(AppConstants.KEY_MIN, min);
+        editor.putInt(AppConstants.KEY_MAX, max);
         editor.apply();
     }
 }
