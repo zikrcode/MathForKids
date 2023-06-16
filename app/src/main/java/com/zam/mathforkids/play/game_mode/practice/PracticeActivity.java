@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.zam.mathforkids.Question;
+import com.zam.mathforkids.model.Question;
 import com.zam.mathforkids.R;
 import com.zam.mathforkids.play.game_mode.result.ResultActivity;
 
