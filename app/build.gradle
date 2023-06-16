@@ -9,8 +9,8 @@ android {
         applicationId "com.zam.mathforkids"
         minSdk 23
         targetSdk 33
-        versionCode 3
-        versionName "2.1"
+        versionCode 4
+        versionName "4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
