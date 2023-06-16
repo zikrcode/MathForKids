@@ -10,59 +10,61 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MathForKids"
+        android:theme="@style/Theme.App.Starting"
         tools:targetApi="31">
         <activity
-            android:name=".TimeActivity"
+            android:name=".play.game_mode.time.TimeActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
-            android:name=".DuelActivity"
+            android:name=".play.game_mode.duel.DuelActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
-            android:name=".QuizActivity"
+            android:name=".play.game_mode.quiz.QuizActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
-            android:name=".ResultActivity"
+            android:name=".play.game_mode.result.ResultActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
-            android:name=".PracticeActivity"
+            android:name=".play.game_mode.practice.PracticeActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
-            android:name=".GameModeActivity"
+            android:name=".play.game_mode.GameModeActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
-            android:name=".OptionsActivity"
+            android:name=".settings.OptionsActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
-            android:name=".PlayMenuActivity"
+            android:name=".play.PlayMenuActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
+            android:theme="@style/ThemeMathForKids"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:configChanges="uiMode"
             android:screenOrientation="portrait"
-            android:exported="false" />
-        <activity
-            android:name=".SplashScreen"
-            android:configChanges="uiMode"
-            android:screenOrientation="portrait"
-            android:exported="true"
-            android:theme="@style/Theme">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

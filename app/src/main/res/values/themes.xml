@@ -1,15 +1,18 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
+
+    <!-- Splash screen theme. -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/ThemeMathForKids</item>
+    </style>
+
     <!-- Base application theme. -->
-    <style name="Theme.MathForKids" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="ThemeMathForKids" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:splitMotionEvents">false</item>
         <item name="android:windowEnableSplitTouch">false</item>
     </style>
 
-    <style name="Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">@color/white</item>
-        <item name="android:windowBackground">@color/white</item>
-    </style>
 </resources>

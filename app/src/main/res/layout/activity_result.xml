@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity">
+    tools:context=".play.game_mode.result.ResultActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:fontFamily="@font/carter_one_regular"
-                android:text="="
+                android:text="@string/equal_sign"
                 android:textColor="@color/green"
                 android:textSize="30sp" />
 
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/carter_one_regular"
-                android:text="="
+                android:text="@string/equal_sign"
                 android:textColor="@color/red"
                 android:textSize="30sp" />
 
@@ -117,9 +117,9 @@
             android:layout_weight=".5"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
-            android:text="TextView"
             android:textColor="@color/green"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:text="TextView" />
 
         <TextView
             android:id="@+id/tvWrongRA"
@@ -128,9 +128,10 @@
             android:layout_weight=".5"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
-            android:text="TextView"
             android:textColor="@color/red"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:text="TextView" />
+
     </LinearLayout>
 
     <LinearLayout
